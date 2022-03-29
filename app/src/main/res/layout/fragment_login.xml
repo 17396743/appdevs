@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#103979"
+    >
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:padding="20dp"
+       android:id="@+id/cl_fp_two"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       tools:ignore="MissingConstraints">
+       <TextView
+           android:textColor="@color/white"
+           android:textSize="30dp"
+           android:text="你好，"
+           android:id="@+id/tv_fl_one"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           tools:ignore="MissingConstraints" />
+       <TextView
+           android:textColor="@color/white"
+           android:textSize="30dp"
+           app:layout_constraintTop_toBottomOf="@+id/tv_fl_one"
+           android:text="欢迎来到XXX"
+           android:id="@+id/tv_fl_two"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           tools:ignore="MissingConstraints" />
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toBottomOf="@+id/cl_fp_two"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:ignore="MissingConstraints">
+        <androidx.cardview.widget.CardView
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="#72EAEAEA"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="MissingConstraints">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <View
+                    android:id="@+id/view_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_one"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    app:cardBackgroundColor="#00EAEAEA"
+                    app:cardElevation="300dp"
+                    app:cardMaxElevation="300dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_one"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <View
+                            android:background="#9CFFFFFF"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+                        <EditText
+                            android:textColorHint="#8AFFFFFF"
+                            android:hint="  手机号："
+                            android:id="@+id/et_phone"
+                            android:digits="0123456789"
+                            android:maxLength="11"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/cl_one"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/cv_one"
+                    app:layout_constraintStart_toStartOf="@+id/cv_one"
+                    app:layout_constraintTop_toBottomOf="@+id/cv_one"
+                    tools:ignore="MissingConstraints">
+
+                    <CheckBox
+                        android:id="@+id/cb_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tv_cb_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:gravity="center_vertical"
+                        android:text="此处请阅读XXXXX协议,勾选及同意。"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/cb_one"
+                        app:layout_constraintLeft_toRightOf="@id/cb_one"
+                        app:layout_constraintTop_toTopOf="@+id/cb_one"
+                        app:layout_constraintVertical_bias="0.0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/rl_four"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="#26C6DA"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    app:cardMaxElevation="100dp"
+                    app:layout_constraintEnd_toEndOf="@+id/cl_one"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/cl_one"
+                    app:layout_constraintTop_toBottomOf="@id/cl_one">
+
+                    <Button
+                        android:id="@+id/btn_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="#40A4D9"
+                        android:text="注册"
+                        android:textColor="@color/white"
+                        tools:ignore="MissingConstraints" />
+
+                </androidx.cardview.widget.CardView>
+                <View
+                    app:layout_constraintTop_toBottomOf="@+id/rl_four"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
