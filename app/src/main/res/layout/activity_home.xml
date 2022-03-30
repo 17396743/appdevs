@@ -10,7 +10,7 @@
         android:id="@+id/fl_one"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/vp_main_one"
+        app:layout_constraintBottom_toTopOf="@+id/rg_main_one"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -45,9 +45,19 @@
             android:gravity="center"
             android:text="首页"
             android:textColor="@color/white" />
-
         <RadioButton
             android:id="@+id/rb_person_main_two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/ic_baseline_language_24"
+            android:gravity="center"
+            android:text="发现"
+            android:textColor="@color/white" />
+        <RadioButton
+            android:id="@+id/rb_person_main_three"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"

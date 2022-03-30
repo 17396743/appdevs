@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import android.os.Bundle;
@@ -13,10 +14,11 @@ import com.example.appdevs.R;
 
 import java.util.ArrayList;
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     FragmentManager fm;
     ArrayList<Fragment> fragments;
+
     public ViewPagerAdapter(@NonNull FragmentManager fm, ArrayList<Fragment> fragments) {
         super(fm);
         this.fm = fm;

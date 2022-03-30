@@ -8,21 +8,23 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
 import com.example.appdevs.R;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 /**
- * @创建时间 2022/3/29 18:40
+ * @创建时间 2022/3/30 17:04
  */
-public class SmartRefreshRecyclerViewAdapter extends DelegateAdapter.Adapter{
+public class TopSettingRecyclerViewAdapter extends DelegateAdapter.Adapter {
+
     private Context context;
+
     //接收数据
-    public SmartRefreshRecyclerViewAdapter( Context context) {
+    public TopSettingRecyclerViewAdapter(Context context) {
         this.context = context;
     }
 
@@ -46,35 +48,54 @@ public class SmartRefreshRecyclerViewAdapter extends DelegateAdapter.Adapter{
     public LayoutHelper onCreateLayoutHelper() {
         return new LinearLayoutHelper();
     }
+
     //绑定布局id
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.smartrefreshtopitem, parent, false);
-        return new SmartRefreshRecyclerViewAdapter.HomeHolder(inflate);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.topsettingitem, parent, false);
+        return new TopSettingRecyclerViewAdapter.HomeHolder(inflate);
     }
+
     //设置数据
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        if (holder instanceof TopRecyclerViewAdapter.HomeHolder) {
-
+        if (holder instanceof TopSettingRecyclerViewAdapter.HomeHolder) {
+            ((HomeHolder) holder).ivTsiOne.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onClick(position);
+                }
+            });
 
         }
     }
 
+    //第一步 定义接口
+    public interface OnItemClickListener {
+        void onClick(int position);
+    }
+
+    private TopSettingRecyclerViewAdapter.OnItemClickListener listener;
+
+    //第二步， 写一个公共的方法
+    public void setOnItemClickListener(TopSettingRecyclerViewAdapter.OnItemClickListener listener) {
+        this.listener = listener;
+    }
 
     //设置显示数量
     @Override
     public int getItemCount() {
         return 1;
     }
+
     //转换组件id
     class HomeHolder extends RecyclerView.ViewHolder {
-        SmartRefreshLayout srlSfhiOne;
+        ImageView ivTsiOne;
+
         public HomeHolder(@NonNull View itemView) {
             super(itemView);
-            srlSfhiOne = (SmartRefreshLayout) itemView.findViewById(R.id.srl_sfhi_one);
-
+            ivTsiOne = (ImageView) itemView.findViewById(R.id.iv_tsi_one);
         }
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#103979"
+    android:background="#728C8C8C"
     >
    <androidx.constraintlayout.widget.ConstraintLayout
        android:padding="20dp"
@@ -43,7 +43,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:cardUseCompatPadding="true"
             app:cardCornerRadius="20dp"
-            app:cardBackgroundColor="#72EAEAEA"
+            app:cardBackgroundColor="#103979"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:ignore="MissingConstraints">
@@ -125,8 +125,7 @@
                     android:layout_height="wrap_content"
                     app:cardBackgroundColor="#26C6DA"
                     app:cardCornerRadius="20dp"
-                    app:cardElevation="20dp"
-                    app:cardMaxElevation="100dp"
+
                     app:layout_constraintEnd_toEndOf="@+id/cl_one"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"

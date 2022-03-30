@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.appdevs.R;
 import com.example.appdevs.tools.SearchWather;
+import com.example.appdevs.tools.SpUtils;
 
 
 public class LoginFragment extends Fragment {
@@ -59,6 +60,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (cbOne.isChecked()) {
+                    new SpUtils().setValue("login",1);
                     Toast.makeText(getContext(), "短信验证码已发送，请注意查收！", Toast.LENGTH_SHORT).show();
                     getActivity().getSupportFragmentManager().beginTransaction().add(R.id.fl_zero, new VerificationFragment()).show(new VerificationFragment()).commit();
                 } else {

@@ -6,62 +6,11 @@
     android:layout_height="match_parent"
     android:background="#103979">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_fp_one"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:padding="5dp"
-        tools:ignore="MissingConstraints">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cardBackgroundColor="#72EAEAEA"
-            app:cardUseCompatPadding="true"
-            tools:ignore="MissingConstraints">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_marginLeft="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ImageView
-
-                    android:id="@+id/iv_fp_one"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/ic_baseline_person_outline_24"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:padding="10dp"
-                    app:layout_constraintLeft_toRightOf="@id/iv_fp_one"
-                    app:layout_constraintRight_toRightOf="parent"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:id="@+id/tv_fp_one"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="请登录"
-                        android:textColor="@color/white"
-                        android:textSize="20dp" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_height="0dp"
+        android:id="@+id/rv_fp_one"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_fp_one" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

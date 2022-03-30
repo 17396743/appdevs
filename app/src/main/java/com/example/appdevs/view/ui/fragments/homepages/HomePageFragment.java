@@ -22,6 +22,8 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import com.wyt.searchbox.SearchFragment;
+import com.wyt.searchbox.custom.IOnSearchClickListener;
 
 import java.util.ArrayList;
 
@@ -76,10 +78,6 @@ public class HomePageFragment extends Fragment {
         delegateAdapter.addAdapter(topRecyclerViewAdapter);
         topRecyclerViewAdapter.notifyDataSetChanged();
 
-//        SmartRefreshRecyclerViewAdapter smartRefreshRecyclerViewAdapter = new SmartRefreshRecyclerViewAdapter(getContext());
-//        delegateAdapter.addAdapter(smartRefreshRecyclerViewAdapter);
-//        smartRefreshRecyclerViewAdapter.notifyDataSetChanged();
-
         BannerRecyclerViewAdapter bannerRecyclerViewAdapter = new BannerRecyclerViewAdapter(beans, getContext());
         delegateAdapter.addAdapter(bannerRecyclerViewAdapter);
         bannerRecyclerViewAdapter.notifyDataSetChanged();
@@ -87,7 +85,30 @@ public class HomePageFragment extends Fragment {
         TitlesRecyclerViewAdapter titlesRecyclerViewAdapter = new TitlesRecyclerViewAdapter(beans, getContext());
         delegateAdapter.addAdapter(titlesRecyclerViewAdapter);
         titlesRecyclerViewAdapter.notifyDataSetChanged();
+
         rvOne.setAdapter(delegateAdapter);
+
+        topRecyclerViewAdapter.setOnPersonItemClickListener(new TopRecyclerViewAdapter.OnPersonItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                Toast.makeText(getContext(),"个人空间",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        topRecyclerViewAdapter.setOnSearchItemClickListener(new TopRecyclerViewAdapter.OnSearchItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                SearchFragment searchFragment = SearchFragment.newInstance();
+                searchFragment.setOnSearchClickListener(new IOnSearchClickListener() {
+                    @Override
+                    public void OnSearchClick(String keyword) {
+                        //这里处理逻辑
+                        Toast.makeText(getContext(), keyword, Toast.LENGTH_SHORT).show();
+                    }
+                });
+                searchFragment.showFragment(getChildFragmentManager(),SearchFragment.TAG);
+            }
+        });
 
 
         titlesRecyclerViewAdapter.setOnItemClickListener(new TitlesRecyclerViewAdapter.OnItemClickListener() {

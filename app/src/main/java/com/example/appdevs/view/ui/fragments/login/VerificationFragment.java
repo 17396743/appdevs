@@ -21,9 +21,7 @@ import com.example.appdevs.view.ui.MainActivity;
 public class VerificationFragment extends Fragment {
 
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
     private View viewOne;
     private TextView tvOne;
     private CardView cvOne;
@@ -56,6 +54,7 @@ public class VerificationFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), HomeActivity.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
     }

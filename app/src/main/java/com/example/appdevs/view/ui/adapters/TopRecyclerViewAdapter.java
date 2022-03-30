@@ -71,9 +71,42 @@ public class TopRecyclerViewAdapter extends DelegateAdapter.Adapter{
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         if (holder instanceof TopRecyclerViewAdapter.HomeHolder) {
-
+            ((HomeHolder) holder).ivFhZero.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    personlistener.onClick(position);
+                }
+            });
+            ((HomeHolder) holder).ivFhOne.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    searchlistener.onClick(position);
+                }
+            });
 
         }
+    }
+
+    //第一步 定义接口
+    public interface OnPersonItemClickListener {
+        void onClick(int position);
+    }
+
+    public interface OnSearchItemClickListener {
+        void onClick(int position);
+    }
+
+    private TopRecyclerViewAdapter.OnPersonItemClickListener personlistener;
+
+    private TopRecyclerViewAdapter.OnSearchItemClickListener searchlistener;
+
+    //第二步， 写一个公共的方法
+    public void setOnPersonItemClickListener(TopRecyclerViewAdapter.OnPersonItemClickListener personlistener) {
+        this.personlistener = personlistener;
+    }
+
+    public void setOnSearchItemClickListener(TopRecyclerViewAdapter.OnSearchItemClickListener searchlistener) {
+        this.searchlistener = searchlistener;
     }
 
 
@@ -84,9 +117,11 @@ public class TopRecyclerViewAdapter extends DelegateAdapter.Adapter{
     }
     //转换组件id
     class HomeHolder extends RecyclerView.ViewHolder {
+        ImageView ivFhZero;
         ImageView ivFhOne;
         public HomeHolder(@NonNull View itemView) {
             super(itemView);
+            ivFhZero = (ImageView) itemView.findViewById(R.id.iv_fh_zero);
             ivFhOne = (ImageView) itemView.findViewById(R.id.iv_fh_one);
         }
     }
