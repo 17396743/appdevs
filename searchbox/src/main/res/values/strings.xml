@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SearchBox</string>
+    <string name="et_search_keyword">搜索关键字</string>
+    <string name="tv_search_clean">清空搜索记录</string>
+</resources>
