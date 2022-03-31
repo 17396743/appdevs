@@ -10,6 +10,7 @@
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_detailpage.xml" value="0.16210739614994935" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_home.xml" value="0.1421875" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_personal_information.xml" value="0.3088768115942029" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_personal_recycler_view_adapter.xml" value="0.22" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_setting.xml" value="0.25" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_view_pager_adapter.xml" value="0.228125" />
@@ -26,6 +27,7 @@
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/fragment_two.xml" value="0.16210739614994935" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/fragment_verification.xml" value="0.33" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/item_one.xml" value="0.16210739614994935" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/personalinformationitem.xml" value="0.33" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/prvaitem.xml" value="0.19322916666666667" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/smartrefreshtopitem.xml" value="0.21" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/titlesitem.xml" value="0.13496376811594202" />

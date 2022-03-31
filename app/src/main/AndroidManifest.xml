@@ -11,9 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Appdevs">
         <activity
-            android:name=".view.ui.setting.SettingActivity"
-            android:launchMode="singleTop"
+            android:name=".view.ui.PersonalInformationActivity"
             android:exported="false" />
+        <activity
+            android:name=".view.ui.setting.SettingActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
         <activity
             android:name=".view.ui.HomeActivity"
             android:exported="false"

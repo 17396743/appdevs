@@ -15,6 +15,7 @@ import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.example.appdevs.R;
 import com.example.appdevs.bean.Bean;
 import com.example.appdevs.view.ui.DetailpageActivity;
+import com.example.appdevs.view.ui.PersonalInformationActivity;
 import com.example.appdevs.view.ui.adapters.TitlesRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.TopRecyclerViewAdapter;
 import com.example.searchbox.SearchFragment;
@@ -82,6 +83,8 @@ public class FindFragment extends Fragment {
             @Override
             public void onClick(int position) {
                 Toast.makeText(getContext(), "个人空间", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), PersonalInformationActivity.class);
+                startActivity(intent);
             }
         });
 

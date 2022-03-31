@@ -19,6 +19,7 @@ import com.example.appdevs.R;
 import com.example.appdevs.bean.Bean;
 import com.example.appdevs.view.ui.DetailpageActivity;
 import com.example.appdevs.view.ui.MainActivity;
+import com.example.appdevs.view.ui.PersonalInformationActivity;
 import com.example.appdevs.view.ui.adapters.PersonalInformationRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.PersonalRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.TitlesRecyclerViewAdapter;
@@ -101,9 +102,12 @@ public class PersonalFragment extends Fragment {
             @Override
             public void onClick(int position) {
                 // 个人信息跳转(未做)
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), MainActivity.class);
+//                startActivity(intent);
                 //跳转至登录页面
+
+                Intent intent = new Intent(getContext(), PersonalInformationActivity.class);
+                startActivity(intent);
             }
         });
 
