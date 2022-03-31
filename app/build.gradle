@@ -34,6 +34,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.android.volley:volley:1.2.0'
+    implementation project(path: ':searchbox')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -99,8 +100,8 @@ dependencies {
     //上下拉 刷新的依赖
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2'
 
-    //搜索框
-    implementation 'com.wenwenwen888:searchbox:1.0.1'
+//    //搜索框
+//    implementation 'com.wenwenwen888:searchbox:1.0.1'
 
 
 

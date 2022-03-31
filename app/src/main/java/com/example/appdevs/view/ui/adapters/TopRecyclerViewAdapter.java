@@ -81,6 +81,7 @@ public class TopRecyclerViewAdapter extends DelegateAdapter.Adapter{
                 @Override
                 public void onClick(View view) {
                     searchlistener.onClick(position);
+
                 }
             });
 

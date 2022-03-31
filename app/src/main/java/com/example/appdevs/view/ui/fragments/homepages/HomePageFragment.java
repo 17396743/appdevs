@@ -18,12 +18,12 @@ import com.example.appdevs.view.ui.DetailpageActivity;
 import com.example.appdevs.view.ui.adapters.BannerRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.TitlesRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.TopRecyclerViewAdapter;
+import com.example.searchbox.SearchFragment;
+import com.example.searchbox.custom.IOnSearchClickListener;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.wyt.searchbox.SearchFragment;
-import com.wyt.searchbox.custom.IOnSearchClickListener;
 
 import java.util.ArrayList;
 

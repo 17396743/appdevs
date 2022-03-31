@@ -1,28 +1,39 @@
 package com.example.appdevs.view.ui.fragments.homepages;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.example.appdevs.R;
+import com.example.appdevs.bean.Bean;
+import com.example.appdevs.view.ui.DetailpageActivity;
+import com.example.appdevs.view.ui.adapters.TitlesRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.TopRecyclerViewAdapter;
-import com.wyt.searchbox.SearchFragment;
-import com.wyt.searchbox.custom.IOnSearchClickListener;
+import com.example.searchbox.SearchFragment;
+import com.example.searchbox.custom.IOnSearchClickListener;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+
+import java.util.ArrayList;
+
 
 public class FindFragment extends Fragment {
     private RecyclerView rvFdOne;
+    private SmartRefreshLayout srlFdOne;
+
     public FindFragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
@@ -54,11 +65,23 @@ public class FindFragment extends Fragment {
         delegateAdapter.addAdapter(topRecyclerViewAdapter);
         topRecyclerViewAdapter.notifyDataSetChanged();
 
+        ArrayList<Bean> beans = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            Bean bean = new Bean();
+            bean.setId("数值：" + i);
+            bean.setName("内容" + i);
+            bean.setImg(R.drawable.p1);
+            beans.add(bean);
+        }
+        TitlesRecyclerViewAdapter titlesRecyclerViewAdapter = new TitlesRecyclerViewAdapter(beans, getContext());
+        delegateAdapter.addAdapter(titlesRecyclerViewAdapter);
+        titlesRecyclerViewAdapter.notifyDataSetChanged();
+
         rvFdOne.setAdapter(delegateAdapter);
         topRecyclerViewAdapter.setOnPersonItemClickListener(new TopRecyclerViewAdapter.OnPersonItemClickListener() {
             @Override
             public void onClick(int position) {
-                Toast.makeText(getContext(),"个人空间",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "个人空间", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -73,13 +96,27 @@ public class FindFragment extends Fragment {
                         Toast.makeText(getContext(), keyword, Toast.LENGTH_SHORT).show();
                     }
                 });
-                searchFragment.showFragment(getChildFragmentManager(),SearchFragment.TAG);
+                searchFragment.showFragment(getChildFragmentManager(), SearchFragment.TAG);
             }
         });
+
+        titlesRecyclerViewAdapter.setOnItemClickListener(new TitlesRecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                Toast.makeText(getContext(), "点击了第" + position + "个", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(getContext(), DetailpageActivity.class);
+                intent.putExtra("id", position);
+                getActivity().startActivity(intent);
+            }
+        });
+
+
 
     }
 
     private void initView(View inflate) {
         rvFdOne = (RecyclerView) inflate.findViewById(R.id.rv_fd_one);
+
     }
 }

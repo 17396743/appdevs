@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
@@ -15,12 +16,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.example.appdevs.R;
+import com.example.appdevs.bean.Bean;
+import com.example.appdevs.view.ui.DetailpageActivity;
 import com.example.appdevs.view.ui.MainActivity;
 import com.example.appdevs.view.ui.adapters.PersonalInformationRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.PersonalRecyclerViewAdapter;
+import com.example.appdevs.view.ui.adapters.TitlesRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.TopRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.TopSettingRecyclerViewAdapter;
 import com.example.appdevs.view.ui.setting.SettingActivity;
+
+import java.util.ArrayList;
 
 public class PersonalFragment extends Fragment {
 
@@ -66,6 +72,18 @@ public class PersonalFragment extends Fragment {
         personalRecyclerViewAdapter.notifyDataSetChanged();
 
 
+        ArrayList<Bean> beans = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            Bean bean = new Bean();
+            bean.setId("数值：" + i);
+            bean.setName("内容" + i);
+            bean.setImg(R.drawable.p1);
+            beans.add(bean);
+        }
+        TitlesRecyclerViewAdapter titlesRecyclerViewAdapter = new TitlesRecyclerViewAdapter(beans,getContext());
+        delegateAdapter.addAdapter(titlesRecyclerViewAdapter);
+        titlesRecyclerViewAdapter.notifyDataSetChanged();
+
         rvFpOne.setAdapter(delegateAdapter);
 
 
@@ -86,6 +104,17 @@ public class PersonalFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
                 //跳转至登录页面
+            }
+        });
+
+        titlesRecyclerViewAdapter.setOnItemClickListener(new TitlesRecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                Toast.makeText(getContext(), "点击了第" + position + "个", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(getContext(), DetailpageActivity.class);
+                intent.putExtra("id", position);
+                getActivity().startActivity(intent);
             }
         });
     }
