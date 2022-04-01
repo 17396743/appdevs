@@ -13,14 +13,17 @@
         android:background="#72EAEAEA"
         tools:ignore="MissingConstraints">
 
-        <ImageView
-            android:id="@+id/iv_fh_zero"
+        <TextView
+            android:id="@+id/tv_fh_one"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingLeft="@dimen/dp_10"
-            android:paddingTop="@dimen/dp_30"
+            android:paddingTop="@dimen/dp_40"
             android:src="@drawable/ic_baseline_person_outline_24"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            android:text="XXX"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_20"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
         <ImageView
             android:id="@+id/iv_fh_one"

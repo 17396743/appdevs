@@ -4,30 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ui.DetailpageActivity">
+    tools:context=".view.ui.FavoritesPreviewActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_dp_one"
+        android:id="@+id/cl_fp_one"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_80"
         android:background="@color/lightblue"
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/iv_dp_one"
+            android:id="@+id/iv_fp_one"
             android:layout_width="@dimen/dp_30"
             android:layout_height="match_parent"
             android:paddingLeft="@dimen/dp_10"
             android:paddingTop="@dimen/dp_30"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintLeft_toLeftOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <WebView
-        android:id="@+id/wv_dp_one"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_fp_one"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_dp_one"
+        app:layout_constraintTop_toBottomOf="@+id/cl_fp_one"
         tools:ignore="MissingConstraints" />
 
 

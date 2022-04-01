@@ -3,59 +3,122 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#103979">
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/v_pi_item_one"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:background="@color/lightblue"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_fp_one"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_100"
-        android:padding="@dimen/sp_5"
+        android:layout_height="wrap_content"
+        android:background="@color/lightblue"
+        app:layout_constraintTop_toBottomOf="@id/v_pi_item_one"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:id="@+id/cl_pi_item_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_20"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/iv_fp_one"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="@dimen/dp_80"
+                android:background="@color/black"
+                android:scaleType="centerCrop"
+                android:src="@color/gray" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/iv_fp_one"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_fp_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="XXXXXX"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_marginTop="@dimen/sp_5"
+                    android:id="@+id/tv_fp_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="#DFDFDF"
+                    android:textSize="@dimen/dp_16"
+                    android:text="id:123456"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_fp_one" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_pi_item_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            app:layout_constraintTop_toBottomOf="@id/cl_pi_item_one"
+            tools:ignore="MissingConstraints">
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+
         tools:ignore="MissingConstraints">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_img"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cardBackgroundColor="#72EAEAEA"
-            app:cardUseCompatPadding="true"
-            tools:ignore="MissingConstraints">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp">
-
-                <ImageView
-                    android:id="@+id/iv_fp_one"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_baseline_person_outline_24"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:padding="10dp"
-                    app:layout_constraintLeft_toRightOf="@id/iv_fp_one"
-                    app:layout_constraintRight_toRightOf="parent"
-                    tools:ignore="MissingConstraints">
-
-                    <TextView
-                        android:id="@+id/tv_fp_one"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="请登录"
-                        android:textColor="@color/white"
-                        android:textSize="20dp" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="@dimen/dp_18"
+            android:layout_marginTop="@dimen/dp_150"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:cardCornerRadius="@dimen/dp_10">
 
 
         </androidx.cardview.widget.CardView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_160"
+            android:background="@color/white" />
+
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

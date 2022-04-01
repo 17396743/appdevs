@@ -5,11 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,13 +14,13 @@ import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.example.appdevs.R;
 import com.example.appdevs.bean.Bean;
+import com.example.appdevs.bean.MyListBean;
 import com.example.appdevs.view.ui.DetailpageActivity;
-import com.example.appdevs.view.ui.MainActivity;
+import com.example.appdevs.view.ui.MyCollectionActivity;
 import com.example.appdevs.view.ui.PersonalInformationActivity;
-import com.example.appdevs.view.ui.adapters.PersonalInformationRecyclerViewAdapter;
+import com.example.appdevs.view.ui.adapters.MyListRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.PersonalRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.TitlesRecyclerViewAdapter;
-import com.example.appdevs.view.ui.adapters.TopRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.TopSettingRecyclerViewAdapter;
 import com.example.appdevs.view.ui.setting.SettingActivity;
 
@@ -63,9 +60,6 @@ public class PersonalFragment extends Fragment {
         //初始化列表绑定 （这个位置可有可无，只要设置好自己所做的布局，后面加上就可以了）
         rvFpOne.setAdapter(delegateAdapter);
 
-        TopSettingRecyclerViewAdapter topSettingRecyclerViewAdapter = new TopSettingRecyclerViewAdapter(getContext());
-        delegateAdapter.addAdapter(topSettingRecyclerViewAdapter);
-        topSettingRecyclerViewAdapter.notifyDataSetChanged();
 
 
         PersonalRecyclerViewAdapter personalRecyclerViewAdapter = new PersonalRecyclerViewAdapter(getContext());
@@ -73,30 +67,37 @@ public class PersonalFragment extends Fragment {
         personalRecyclerViewAdapter.notifyDataSetChanged();
 
 
-        ArrayList<Bean> beans = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            Bean bean = new Bean();
-            bean.setId("数值：" + i);
-            bean.setName("内容" + i);
-            bean.setImg(R.drawable.p1);
-            beans.add(bean);
+        ArrayList<MyListBean> myListBeans = new ArrayList<>();
+        myListBeans.add(new MyListBean(R.drawable.ic_baseline_star_24, "我的收藏"));
+        myListBeans.add(new MyListBean(R.drawable.ic_baseline_settings_24, "系统设置"));
+
+        MyListRecyclerViewAdapter myListRecyclerViewAdapter = new MyListRecyclerViewAdapter(getContext(),myListBeans);
+        delegateAdapter.addAdapter(myListRecyclerViewAdapter);
+        myListRecyclerViewAdapter.notifyDataSetChanged();
+
+
+
+        ArrayList<Class> classes = new ArrayList<>();
+        classes.add(MyCollectionActivity.class);
+        classes.add(SettingActivity.class);
+
+        ArrayList<Intent> intents = new ArrayList<>();
+        for (int i = 0; i < classes.size(); i++) {
+            Intent intent = IntentList(classes.get(i));
+            intents.add(intent);
         }
-        TitlesRecyclerViewAdapter titlesRecyclerViewAdapter = new TitlesRecyclerViewAdapter(beans,getContext());
-        delegateAdapter.addAdapter(titlesRecyclerViewAdapter);
-        titlesRecyclerViewAdapter.notifyDataSetChanged();
+
+        myListRecyclerViewAdapter.setOnItemClickListener(new MyListRecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                Intent intent = intents.get(position);
+                getActivity().startActivity(intent);
+            }
+        });
+
 
         rvFpOne.setAdapter(delegateAdapter);
 
-
-        topSettingRecyclerViewAdapter.setOnItemClickListener(new TopSettingRecyclerViewAdapter.OnItemClickListener() {
-            @Override
-            public void onClick(int position) {
-                // 设置跳转
-                Intent intent = new Intent();
-                intent.setClass(getContext(), SettingActivity.class);
-                startActivity(intent);
-            }
-        });
 
         personalRecyclerViewAdapter.setOnItemClickListener(new PersonalRecyclerViewAdapter.OnItemClickListener() {
             @Override
@@ -111,16 +112,13 @@ public class PersonalFragment extends Fragment {
             }
         });
 
-        titlesRecyclerViewAdapter.setOnItemClickListener(new TitlesRecyclerViewAdapter.OnItemClickListener() {
-            @Override
-            public void onClick(int position) {
-                Toast.makeText(getContext(), "点击了第" + position + "个", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent();
-                intent.setClass(getContext(), DetailpageActivity.class);
-                intent.putExtra("id", position);
-                getActivity().startActivity(intent);
-            }
-        });
+
+    }
+
+    private Intent IntentList(Class classes) {
+        Intent intent = new Intent();
+        intent.setClass(getContext(),classes);
+        return intent;
     }
 
     private void initView(View inflate) {

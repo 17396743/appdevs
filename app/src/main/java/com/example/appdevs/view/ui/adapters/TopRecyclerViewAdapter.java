@@ -6,27 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
-import com.alibaba.android.vlayout.layout.StickyLayoutHelper;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.appdevs.R;
-import com.example.appdevs.bean.Bean;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.youth.banner.Banner;
-import com.youth.banner.adapter.BannerImageAdapter;
-import com.youth.banner.holder.BannerImageHolder;
-import com.youth.banner.indicator.CircleIndicator;
-
-import java.util.List;
 
 /**
  * @创建时间 2022/3/29 18:00
@@ -35,9 +23,11 @@ public class TopRecyclerViewAdapter extends DelegateAdapter.Adapter{
 
 
     private Context context;
+    private String name;
     //接收数据
-    public TopRecyclerViewAdapter( Context context) {
+    public TopRecyclerViewAdapter(Context context, String name) {
         this.context = context;
+        this.name = name;
     }
 
     //适配器预设
@@ -67,16 +57,13 @@ public class TopRecyclerViewAdapter extends DelegateAdapter.Adapter{
         View inflate = LayoutInflater.from(context).inflate(R.layout.topitem, parent, false);
         return new TopRecyclerViewAdapter.HomeHolder(inflate);
     }
+
+
     //设置数据
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         if (holder instanceof TopRecyclerViewAdapter.HomeHolder) {
-            ((HomeHolder) holder).ivFhZero.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    personlistener.onClick(position);
-                }
-            });
+            ((HomeHolder) holder).tvFhOne.setText(name);
             ((HomeHolder) holder).ivFhOne.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -118,12 +105,12 @@ public class TopRecyclerViewAdapter extends DelegateAdapter.Adapter{
     }
     //转换组件id
     class HomeHolder extends RecyclerView.ViewHolder {
-        ImageView ivFhZero;
         ImageView ivFhOne;
+        TextView tvFhOne;
         public HomeHolder(@NonNull View itemView) {
             super(itemView);
-            ivFhZero = (ImageView) itemView.findViewById(R.id.iv_fh_zero);
             ivFhOne = (ImageView) itemView.findViewById(R.id.iv_fh_one);
+            tvFhOne = (TextView) itemView.findViewById(R.id.tv_fh_one);
         }
     }
 }

@@ -14,10 +14,6 @@ import com.example.appdevs.view.ui.fragments.login.VerificationFragment;
 public class MainActivity extends AppCompatActivity {
 
 
-    LoginFragment loginFragment;
-    VerificationFragment verificationFragment;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         }else {
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 }

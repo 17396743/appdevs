@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,33 +14,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
-import com.alibaba.android.vlayout.layout.ColumnLayoutHelper;
-import com.alibaba.android.vlayout.layout.FloatLayoutHelper;
-import com.alibaba.android.vlayout.layout.GridLayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
-import com.alibaba.android.vlayout.layout.OnePlusNLayoutHelper;
-import com.alibaba.android.vlayout.layout.ScrollFixLayoutHelper;
-import com.alibaba.android.vlayout.layout.StaggeredGridLayoutHelper;
-import com.alibaba.android.vlayout.layout.StickyLayoutHelper;
 import com.bumptech.glide.Glide;
 import com.example.appdevs.R;
-import com.example.appdevs.bean.Bean;
+import com.example.appdevs.bean.MyListBean;
 
 import java.util.ArrayList;
 
 /**
- * @创建时间 2022/3/29 16:33
+ * @创建时间 2022/4/1 23:09
  */
-public class TitlesRecyclerViewAdapter extends DelegateAdapter.Adapter {
-
-
-    private ArrayList<Bean> beans;
+public class MyListRecyclerViewAdapter extends DelegateAdapter.Adapter<MyListRecyclerViewAdapter.HomeHolder> {
     private Context context;
+    private ArrayList<MyListBean> myListBeans;
 
     //接收数据
-    public TitlesRecyclerViewAdapter(ArrayList<Bean> beans, Context context) {
-        this.beans = beans;
+    public MyListRecyclerViewAdapter(Context context, ArrayList<MyListBean> myListBeans) {
         this.context = context;
+        this.myListBeans = myListBeans;
     }
 
     //适配器预设
@@ -63,29 +55,26 @@ public class TitlesRecyclerViewAdapter extends DelegateAdapter.Adapter {
         return new LinearLayoutHelper();
     }
 
-
     //绑定布局id
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.titlesitem, parent, false);
-        return new HomeHolder(inflate);
+    public HomeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View inflate = LayoutInflater.from(context).inflate(R.layout.mylistitem, parent, false);
+        return new MyListRecyclerViewAdapter.HomeHolder(inflate);
     }
 
     //设置数据
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        if (holder instanceof HomeHolder) {
-            Glide.with(context).load(beans.get(position).getImg()).into(((HomeHolder) holder).ivItemOne);
-            ((HomeHolder) holder).tvItemOne.setText(beans.get(position).getName());
+    public void onBindViewHolder(@NonNull HomeHolder holder, @SuppressLint("RecyclerView") int position) {
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.onClick(position);
-                }
-            });
-        }
+        Glide.with(context).load(myListBeans.get(position).getImges()).into(holder.ivMlItemOne);
+        holder.tvMlItemOne.setText(myListBeans.get(position).getName());
+        holder.rlMlItemOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onClick(position);
+            }
+        });
     }
 
     //第一步 定义接口
@@ -93,28 +82,35 @@ public class TitlesRecyclerViewAdapter extends DelegateAdapter.Adapter {
         void onClick(int position);
     }
 
-    private TitlesRecyclerViewAdapter.OnItemClickListener listener;
+    private MyListRecyclerViewAdapter.OnItemClickListener listener;
 
     //第二步， 写一个公共的方法
-    public void setOnItemClickListener(TitlesRecyclerViewAdapter.OnItemClickListener listener) {
+    public void setOnItemClickListener(MyListRecyclerViewAdapter.OnItemClickListener listener) {
         this.listener = listener;
     }
 
     //设置显示数量
     @Override
     public int getItemCount() {
-        return beans.size();
+        return myListBeans.size();
     }
 
     //转换组件id
     class HomeHolder extends RecyclerView.ViewHolder {
-        ImageView ivItemOne;
-        TextView tvItemOne;
+        RelativeLayout rlMlItemOne;
+        TextView tvMlItemOne;
+        ImageView ivMlItemOne;
+        ImageView ivMlItemTwo;
 
         public HomeHolder(@NonNull View itemView) {
             super(itemView);
-            ivItemOne = (ImageView) itemView.findViewById(R.id.iv_item_one);
-            tvItemOne = (TextView) itemView.findViewById(R.id.tv_item_one);
+            rlMlItemOne = (RelativeLayout) itemView.findViewById(R.id.rl_ml_item_one);
+
+            ivMlItemOne = (ImageView) itemView.findViewById(R.id.iv_ml_item_one);
+            ivMlItemTwo = (ImageView) itemView.findViewById(R.id.iv_ml_item_two);
+
+            tvMlItemOne = (TextView) itemView.findViewById(R.id.tv_ml_item_one);
+
         }
     }
 }

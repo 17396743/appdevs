@@ -9,14 +9,18 @@
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/drawable/textcolor.xml" value="0.199" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_detailpage.xml" value="0.16210739614994935" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_edit_profile.xml" value="0.41746724890829695" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_favorites_preview.xml" value="0.14739583333333334" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_home.xml" value="0.1421875" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_my_collection.xml" value="0.2833333333333333" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_new_favorites.xml" value="0.33" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_personal_information.xml" value="0.3088768115942029" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_personal_recycler_view_adapter.xml" value="0.22" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_setting.xml" value="0.25" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/activity_view_pager_adapter.xml" value="0.228125" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/banneritem.xml" value="0.67" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/classificationitem.xml" value="0.13645833333333332" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/defaultcollectionitem.xml" value="0.33" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/fragment_find.xml" value="0.17239583333333333" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/fragment_home_list.xml" value="0.13645833333333332" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/fragment_home_page_list.xml" value="0.13645833333333332" />
@@ -28,11 +32,12 @@
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/fragment_two.xml" value="0.16210739614994935" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/fragment_verification.xml" value="0.33" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/item_one.xml" value="0.16210739614994935" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/mylistitem.xml" value="0.2953125" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/personalinformationitem.xml" value="0.33" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/prvaitem.xml" value="0.19322916666666667" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/prvaitem.xml" value="0.45643153526970953" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/smartrefreshtopitem.xml" value="0.21" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/titlesitem.xml" value="0.13496376811594202" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/topitem.xml" value="0.33" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/titlesitem.xml" value="0.33" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/topitem.xml" value="0.22" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/app/src/main/res/layout/topsettingitem.xml" value="0.19322916666666667" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/searchbox/src/main/res/drawable/shape_corner_white.xml" value="0.197" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/appdevs/searchbox/src/main/res/layout/dialog_search.xml" value="0.1503623188405797" />

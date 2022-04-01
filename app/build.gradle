@@ -100,8 +100,6 @@ dependencies {
     //上下拉 刷新的依赖
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2'
 
-//    //搜索框
-//    implementation 'com.wenwenwen888:searchbox:1.0.1'
 
 
 

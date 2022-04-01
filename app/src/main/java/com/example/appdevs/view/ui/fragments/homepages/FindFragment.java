@@ -62,7 +62,7 @@ public class FindFragment extends Fragment {
         //初始化列表绑定 （这个位置可有可无，只要设置好自己所做的布局，后面加上就可以了）
         rvFdOne.setAdapter(delegateAdapter);
 
-        TopRecyclerViewAdapter topRecyclerViewAdapter = new TopRecyclerViewAdapter(getContext());
+        TopRecyclerViewAdapter topRecyclerViewAdapter = new TopRecyclerViewAdapter(getContext(),"发现");
         delegateAdapter.addAdapter(topRecyclerViewAdapter);
         topRecyclerViewAdapter.notifyDataSetChanged();
 

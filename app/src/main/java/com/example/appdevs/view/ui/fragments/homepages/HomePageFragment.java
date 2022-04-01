@@ -15,7 +15,6 @@ import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.example.appdevs.R;
 import com.example.appdevs.bean.Bean;
 import com.example.appdevs.view.ui.DetailpageActivity;
-import com.example.appdevs.view.ui.HomeActivity;
 import com.example.appdevs.view.ui.PersonalInformationActivity;
 import com.example.appdevs.view.ui.adapters.BannerRecyclerViewAdapter;
 import com.example.appdevs.view.ui.adapters.TitlesRecyclerViewAdapter;
@@ -76,7 +75,7 @@ public class HomePageFragment extends Fragment {
         //初始化列表绑定 （这个位置可有可无，只要设置好自己所做的布局，后面加上就可以了）
         rvOne.setAdapter(delegateAdapter);
 
-        TopRecyclerViewAdapter topRecyclerViewAdapter = new TopRecyclerViewAdapter(getContext());
+        TopRecyclerViewAdapter topRecyclerViewAdapter = new TopRecyclerViewAdapter(getContext(), "首页");
         delegateAdapter.addAdapter(topRecyclerViewAdapter);
         topRecyclerViewAdapter.notifyDataSetChanged();
 

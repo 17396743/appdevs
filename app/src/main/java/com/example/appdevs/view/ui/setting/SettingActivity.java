@@ -1,15 +1,16 @@
 package com.example.appdevs.view.ui.setting;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.appdevs.R;
 import com.example.appdevs.tools.SpUtils;
@@ -21,6 +22,8 @@ public class SettingActivity extends AppCompatActivity {
     CheckBox checkboxLogin;
     CheckBox checkboxNologin;
     RelativeLayout rlLogout;
+    private ConstraintLayout clStOne;
+    private ImageView ivStOne;
 
 
     @Override
@@ -68,7 +71,7 @@ public class SettingActivity extends AppCompatActivity {
         rlLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SpUtils.getInstance().setValue("loginloader",true);
+                SpUtils.getInstance().setValue("loginloader", true);
                 Intent startMain = new Intent(Intent.ACTION_MAIN);
                 startMain.setClass(SettingActivity.this, MainActivity.class);
 //                startMain.addCategory(Intent.CATEGORY_HOME);
@@ -77,19 +80,17 @@ public class SettingActivity extends AppCompatActivity {
                 finish();
             }
         });
+        ivStOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
     }
 
-    /**
-     * 退出程序
-     **/
-    protected void exit() {
-        Intent startMain = new Intent(Intent.ACTION_MAIN);
-        startMain.addCategory(Intent.CATEGORY_HOME);
-        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(startMain);
-        System.exit(0);
-    }
+
+
 
     private void initView() {
 
@@ -97,6 +98,8 @@ public class SettingActivity extends AppCompatActivity {
         checkboxLogin = (CheckBox) findViewById(R.id.checkbox_login);
         checkboxNologin = (CheckBox) findViewById(R.id.checkbox_nologin);
         rlLogout = (RelativeLayout) findViewById(R.id.rl_logout);
+        clStOne = (ConstraintLayout) findViewById(R.id.cl_st_one);
+        ivStOne = (ImageView) findViewById(R.id.iv_st_one);
     }
 
 
