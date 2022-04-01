@@ -2,18 +2,14 @@ package com.example.appdevs.view.ui;
 
 import android.os.Bundle;
 import android.widget.RadioGroup;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
+import androidx.fragment.app.FragmentTransaction;
 import com.example.appdevs.R;
-import com.example.appdevs.view.ui.adapters.ViewPagerAdapter;
 import com.example.appdevs.view.ui.fragments.homepages.FindFragment;
 import com.example.appdevs.view.ui.fragments.homepages.HomePageFragment;
 import com.example.appdevs.view.ui.fragments.homepages.PersonalFragment;
 
-import java.util.ArrayList;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -21,11 +17,10 @@ public class HomeActivity extends AppCompatActivity {
 
     HomePageFragment oneFragment;
     PersonalFragment twoFragment;
-
     RadioGroup rgMainOne;
 
-    ViewPager vpMainOne;
     private FindFragment threeFragment;
+    private FragmentTransaction transaction;
 
 
     @Override
@@ -38,56 +33,40 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initData() {
-
+        replaceFragment(R.id.fl_one, oneFragment);
         rgMainOne.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i){
+                switch (i) {
                     case R.id.rb_shouye_main_one:
-                        vpMainOne.setCurrentItem(0,false);
+                        replaceFragment(R.id.fl_one, oneFragment);
                         break;
                     case R.id.rb_person_main_two:
-                        vpMainOne.setCurrentItem(1,false);
+                        replaceFragment(R.id.fl_one, threeFragment);
                         break;
                     case R.id.rb_person_main_three:
-                        vpMainOne.setCurrentItem(2,false);
+                        replaceFragment(R.id.fl_one, twoFragment);
                         break;
                 }
             }
         });
 
-        ArrayList<Fragment> fragments = new ArrayList<>();
-        fragments.add(oneFragment);
-        fragments.add(threeFragment);
-        fragments.add(twoFragment);
+    }
 
-
-        vpMainOne.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), fragments));
-
-
-        vpMainOne.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                rgMainOne.check(rgMainOne.getChildAt(position).getId());
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
+    /**
+     * 切换Fragment
+     *
+     * @param ID
+     * @param fragment
+     */
+    private void replaceFragment(int ID, Fragment fragment) {
+        transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(ID, fragment);
+        transaction.commitAllowingStateLoss();
     }
 
     private void initView() {
-
         rgMainOne = (RadioGroup) findViewById(R.id.rg_main_one);
-        vpMainOne = (ViewPager) findViewById(R.id.vp_main_one);
 
         oneFragment = new HomePageFragment();
         twoFragment = new PersonalFragment();

@@ -2,17 +2,30 @@ package com.example.appdevs.view.ui.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.example.appdevs.R;
 
 /**
@@ -21,8 +34,9 @@ import com.example.appdevs.R;
 public class PersonalInformationRecyclerViewAdapter extends DelegateAdapter.Adapter<PersonalInformationRecyclerViewAdapter.HomeHolder> {
 
     private Context context;
+
     //接收数据
-    public PersonalInformationRecyclerViewAdapter( Context context) {
+    public PersonalInformationRecyclerViewAdapter(Context context) {
         this.context = context;
 
     }
@@ -57,8 +71,33 @@ public class PersonalInformationRecyclerViewAdapter extends DelegateAdapter.Adap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HomeHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HomeHolder holder, @SuppressLint("RecyclerView") int position) {
 
+        Glide.with(context)
+                .load(R.drawable.p1)
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
+                .into(holder.ivPiOne);
+
+        holder.tvPiItemOne.setText("666666");
+
+        holder.cvPiItemOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onClick(position);
+            }
+        });
+    }
+
+    //第一步 定义接口
+    public interface OnItemClickListener {
+        void onClick(int position);
+    }
+
+    private PersonalInformationRecyclerViewAdapter.OnItemClickListener listener;
+
+    //第二步， 写一个公共的方法
+    public void setOnItemClickListener(PersonalInformationRecyclerViewAdapter.OnItemClickListener listener) {
+        this.listener = listener;
     }
 
     //设置显示数量
@@ -66,12 +105,18 @@ public class PersonalInformationRecyclerViewAdapter extends DelegateAdapter.Adap
     public int getItemCount() {
         return 1;
     }
+
     //转换组件id
     class HomeHolder extends RecyclerView.ViewHolder {
+        CardView cvPiItemOne;
+        ImageView ivPiOne;
+        TextView tvPiItemOne;
 
         public HomeHolder(@NonNull View itemView) {
             super(itemView);
-
+            cvPiItemOne = (CardView) itemView.findViewById(R.id.cv_pi_item_one);
+            ivPiOne = (ImageView) itemView.findViewById(R.id.iv_pi_one);
+            tvPiItemOne = (TextView) itemView.findViewById(R.id.tv_pi_item_one);
         }
     }
 }

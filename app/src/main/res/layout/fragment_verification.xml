@@ -9,7 +9,7 @@
     >
     <androidx.cardview.widget.CardView
         app:cardUseCompatPadding="true"
-        app:cardCornerRadius="20dp"
+        app:cardCornerRadius="@dimen/dp_20"
         app:cardBackgroundColor="#103979"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,7 +21,7 @@
             <View
                 android:id="@+id/view_one"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="@dimen/dp_80"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
 
@@ -30,8 +30,8 @@
                 android:textColor="@color/white"
                 android:text="此处请填写短信验证码。"
                 android:id="@+id/tv_one"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="@dimen/dp_80"
                 app:layout_constraintTop_toBottomOf="@+id/view_one"
                 app:layout_constraintEnd_toEndOf="@+id/cv_one"
                 app:layout_constraintStart_toStartOf="@+id/cv_one"

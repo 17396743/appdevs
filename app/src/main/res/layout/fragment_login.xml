@@ -7,14 +7,14 @@
     android:background="#728C8C8C"
     >
    <androidx.constraintlayout.widget.ConstraintLayout
-       android:padding="20dp"
+       android:padding="@dimen/dp_20"
        android:id="@+id/cl_fp_two"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        tools:ignore="MissingConstraints">
        <TextView
            android:textColor="@color/white"
-           android:textSize="30dp"
+           android:textSize="@dimen/dp_30"
            android:text="你好，"
            android:id="@+id/tv_fl_one"
            android:layout_width="match_parent"

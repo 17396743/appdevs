@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_tsi_one"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="@dimen/dp_80"
         android:background="#72EAEAEA"
         tools:ignore="MissingConstraints">
 
@@ -17,8 +17,8 @@
             android:id="@+id/iv_tsi_one"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingTop="30dp"
-            android:paddingRight="10dp"
+            android:paddingTop="@dimen/dp_30"
+            android:paddingRight="@dimen/dp_10"
             android:src="@drawable/ic_baseline_settings_24"
             app:layout_constraintRight_toRightOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

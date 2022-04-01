@@ -17,6 +17,9 @@ import android.widget.TextView;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.appdevs.R;
 
 public class PersonalRecyclerViewAdapter extends DelegateAdapter.Adapter{
@@ -58,12 +61,20 @@ public class PersonalRecyclerViewAdapter extends DelegateAdapter.Adapter{
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         if (holder instanceof PersonalRecyclerViewAdapter.HomeHolder) {
+
+            ((HomeHolder) holder).tvFpOne.setText("XXXXXX");
+            Glide.with(context)
+                    .load(R.drawable.p1)
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
+                    .into(((HomeHolder) holder).ivFpOne);
             ((HomeHolder) holder).clFpOne.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     listener.onClick(position);
                 }
             });
+
+
         }
     }
 

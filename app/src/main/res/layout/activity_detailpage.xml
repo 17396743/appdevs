@@ -12,5 +12,5 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="测试"
-        android:textSize="50dp" />
+        android:textSize="@dimen/dp_50" />
 </androidx.constraintlayout.widget.ConstraintLayout>

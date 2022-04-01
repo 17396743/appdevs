@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/iv_item_one"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="@dimen/dp_90"
+        android:layout_height="@dimen/dp_90"
         android:src="@drawable/file"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -17,8 +17,8 @@
 
     <TextView
         android:id="@+id/tv_item_one"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_0"
         android:background="#66BB6A"
         app:layout_constraintBottom_toTopOf="@id/tv_item_two"
         app:layout_constraintLeft_toLeftOf="parent"
