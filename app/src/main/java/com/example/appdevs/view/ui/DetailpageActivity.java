@@ -34,7 +34,7 @@ public class DetailpageActivity extends AppCompatActivity {
 
         for (int i = 0; i < 5; i++) {
             urls.add("https://mp.weixin.qq.com/s?__biz=MzU0MjczMDkyMA==&mid=2247489058&idx=1&sn=24d8fc799007019685c2c34e94a0b59e&chksm=fb1769e5cc60e0f3eee6b787cac7d9a4a90d2f7973883e7cc1868137176eb4aaf4964f3011fe&token=191262423&lang=zh_CN#rd");
-            urls.add("http://www.xiangxueketang.cn/enjoy/content/1648715389");
+            urls.add("https://mp.weixin.qq.com/s/HbOOHpg9SzITv1R9g_kbnw");
             urls.add("https://www.wanandroid.com/blog/show/3293");
             urls.add("https://mp.weixin.qq.com/s/e-XwF30-CWgBwq7Nw_01UA");
         }
